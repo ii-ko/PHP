@@ -1,13 +1,42 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="<?= base_url('dist')?>/css/bootstrap.min.css" rel="stylesheet">
-    <title>Mahasiswa | <?= $title?></title>
-  </head>
-  <body>
-    <h1>Home Page</h1>
-    <script src="<?= base_url('dist')?>/js/bootstrap.bundle.min.js"></script>
-  </body>
-</html>
+<?= $this->extend('layout/layout')?>
+<?= $this->section('content')?>
+<table class="table table-striped">
+<thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Majority</th>
+      <th scope="col">Email</th>
+      <th scope="col">Contact</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>+82</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+      <td>+51</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+      <td>+17</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td colspan="2">Mamank the destoryer</td>
+      <td>@samsak</td>
+      <td>+62</td>
+    </tr>
+  </tbody>
+</table>
+<?= $this->endSection()?>
