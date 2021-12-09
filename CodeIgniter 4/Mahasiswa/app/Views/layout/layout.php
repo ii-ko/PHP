@@ -4,7 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="<?= base_url('dist')?>/css/bootstrap.min.css" rel="stylesheet" />
-    <title>Mahasiswa | <?= $title?></title>
+    <?php if ($title):?>
+      <title>Mahasiswa | <?= $title?></title>
+    <?php else: ?>  
+      <title>Mahasiswa | Index</title>
+    <?php endif;?>  
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -16,21 +20,21 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="<?= base_url('dashboard')?>">Home</a>
+              <a class="nav-link active" aria-current="page" href="<?= base_url('/')?>">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Data</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="<?= base_url('/about')?>">About</a>
             </li>
           </ul>
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="<?= base_url('auth')?>">Login</a>
+              <a class="nav-link" href="<?= base_url('/login')?>">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Register</a>
+              <a class="nav-link" href="<?= base_url('/register')?>">Register</a>
             </li>
           </ul>
         </div>
