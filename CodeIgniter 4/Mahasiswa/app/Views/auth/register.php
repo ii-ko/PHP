@@ -5,7 +5,10 @@
         <div class="card">
             <div class="card-header"><h4 class="text-center">Create New Account</h4></div>
                 <div class="card-body">
-                    <form action="" method="post">
+                <?php if(isset($validation)):?>
+                    <div class="alert alert-danger"><?= $validation->listErrors() ?></div>
+                <?php endif;?>
+                    <form action="<?= base_url('/save')?>" method="post">
                         <div class="form-group mb-3">
                             <label for="username" class="form-label">Username</label>
                             <input type="text" class="form-control" name="username" placeholder="Enter Username">
