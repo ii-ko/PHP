@@ -5,25 +5,38 @@
         <div class="card">
             <div class="card-header"><h4 class="text-center">Create New Account</h4></div>
                 <div class="card-body">
-                <?php if(isset($validation)):?>
-                    <div class="alert alert-danger"><?= $validation->listErrors() ?></div>
-                <?php endif;?>
                     <form action="<?= base_url('/save')?>" method="post">
                         <div class="form-group mb-3">
                             <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control" name="username" placeholder="Enter Username">
+                            <input type="text" class="form-control <?= ($validation->hasError('username'))?'is-invalid':''?>" 
+                            name="username" autofocus value="<?= old('username')?>">
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('username')?>
+                            </div>
                         </div>
                         <div class="form-group mb-3">
                             <label for="email" class="form-label">Email address</label>
-                            <input type="email" class="form-control" name="email" placeholder="Enter email address">
+                            <input type="email" class="form-control <?= ($validation->hasError('email'))?'is-invalid':''?>" 
+                            name="email" value="<?= old('email')?>">
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('email')?>
+                            </div>
                         </div>
                         <div class="form-group mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" name="password" placeholder="Enter password">
+                            <input type="password" class="form-control <?= ($validation->hasError('password'))?'is-invalid':''?>" 
+                            name="password">
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('password')?>
+                            </div>
                         </div>
                         <div class="form-group mb-3">
                             <label for="conf_password" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" name="conf_password" placeholder="Confirm password">
+                            <input type="password" class="form-control <?= ($validation->hasError('conf_password'))?'is-invalid':''?>" 
+                            name="conf_password">
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('conf_password')?>
+                            </div>
                         </div>
                         <div class="d-grid gap-2">
                             <button class="btn btn-primary" type="submit">Register</button>

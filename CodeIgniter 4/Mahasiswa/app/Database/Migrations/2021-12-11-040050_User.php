@@ -17,7 +17,6 @@ class User extends Migration
             'role_id' => [
                 'type'           => 'INT',
                 'constraint'     => 11,
-                'unsigned'       => true,
             ],
             'username' => [
                 'type'       => 'VARCHAR',
