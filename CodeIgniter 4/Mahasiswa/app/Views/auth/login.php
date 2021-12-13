@@ -5,14 +5,17 @@
     <div class="card">
       <div class="card-header"><h4 class="text-center">Welcome</h4></div>
       <div class="card-body">
+        <?php if(session()->getFlashdata('msg')):?>
+          <div class="alert alert-info text-center"><?= session()->getFlashdata('msg')?></div>
+        <?php endif; ?>
         <form action="" method="post">
           <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" name="email" placeholder="Enter email address" />
+            <input type="email" class="form-control" name="email" />
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" name="password" placeholder="Enter password" />
+            <input type="password" class="form-control" name="password" />
           </div>
           <div class="d-grid gap-2">
             <button class="btn btn-primary" type="submit">Login</button>

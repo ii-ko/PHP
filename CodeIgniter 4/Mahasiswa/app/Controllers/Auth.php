@@ -40,8 +40,11 @@ class Auth extends BaseController{
                 'email'    => htmlspecialchars($this->request->getVar('email')),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
             ];
-            $model->save($data);
-            return redirect()->to('/login');
+            $save = $model->save($data);
+            if($save){
+                session()->setFlashdata('msg', 'Your account has been created. You can able to login now');
+                return redirect()->to('/login');
+            }
         }else{
             $validation = \Config\Services::validation();
             return redirect()->to('register')->withInput()->with('validation', $validation);
