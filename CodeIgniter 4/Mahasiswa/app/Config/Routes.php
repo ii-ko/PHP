@@ -35,6 +35,7 @@ $routes->get('/', 'dashboard::index');
 $routes->get('/login', 'auth::index');
 $routes->get('/register', 'auth::register');
 $routes->get('/about', 'dashboard::about');
+$routes->get('/logout', 'auth::logout');
 $routes->post('/save', 'auth::register_user');
 /*
  * --------------------------------------------------------------------

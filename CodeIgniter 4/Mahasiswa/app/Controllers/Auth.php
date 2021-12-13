@@ -10,6 +10,43 @@ class Auth extends BaseController{
         return view('auth/login', $data);
     }
 
+// Method Login
+    public function login(){
+        // load session
+        $session = session();
+        $model = new UserModel();
+
+        // ambil data dari imputan
+        $email = $this->request->getVar('email');
+        $password = $this->request->getVar('password');
+
+        // ambil data dari database
+        $data = $model->where('email', $email)->first();
+
+        // cek jika ada datanya
+        if($data){
+            $pass = $data['password'];
+            $verify_pass = password_verify($password, $pass);
+            if($verify_pass){
+                $ses_data = [
+                    'id'        => $data['id'],
+                    'username'  => $data['username'],
+                    'email'     => $data['email'],
+                    'is_login'  => TRUE
+                ];
+                $session->set($ses_data);
+                return redirect()->to('user');
+            }else{
+                $session->setFlashdata('msg', 'Wrong Password');
+                return redirect()->to('/login');
+            }
+        }else{
+            $session->setFlashdata('msg', 'Email not Found');
+            return redirect()->to('/login');
+        }
+    }
+
+// Method Register
     public function register(){
         // load session
         session();
@@ -20,6 +57,7 @@ class Auth extends BaseController{
         return view('auth/register', $data);
     }
 
+// Method Simpan data dari register user
     public function register_user(){
         //include helper form
         helper(['form']);
@@ -49,5 +87,13 @@ class Auth extends BaseController{
             $validation = \Config\Services::validation();
             return redirect()->to('register')->withInput()->with('validation', $validation);
         }
+    }
+
+    // method logout
+    public function logout()
+    {
+        $session = session();
+        $session->destroy();
+        return redirect()->to('/login');
     }
 }

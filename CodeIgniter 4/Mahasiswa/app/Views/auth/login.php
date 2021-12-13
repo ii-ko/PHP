@@ -8,7 +8,8 @@
         <?php if(session()->getFlashdata('msg')):?>
           <div class="alert alert-info text-center"><?= session()->getFlashdata('msg')?></div>
         <?php endif; ?>
-        <form action="" method="post">
+        <form action="<?= base_url('auth/login')?>" method="post">
+        <?= csrf_field(); ?>
           <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
             <input type="email" class="form-control" name="email" />
