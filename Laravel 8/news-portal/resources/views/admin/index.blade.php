@@ -3,11 +3,11 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>ADMIN DASHBOARD | WEBSITE NAME</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="css/ionicons.min.css">
-	<link rel="stylesheet" type="text/css" href="css/menu.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">	
+	<link rel="stylesheet" type="text/css" href="{{ url ('admin/css/admin-bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url ('admin/css/admin-font-awesome.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url ('admin/css/admin-ionicons.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url ('admin/css/admin-menu.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url ('admin/css/admin-style.css') }}">	
 </head>
 <body>
 
@@ -138,7 +138,7 @@
 
 			<div class="content">
 				<div class="col-sm-3">			
-					<img src="images/logo-big.png" width="100%">
+					<img src="{{ url ('admin/images/logo-big.png') }}" width="100%">
 				</div>
 				<div class="col-sm-9">
 					<p><b><a href="http://www.webtrickshome.com" target="_blank">Webtrickshome.com</a></b> The ultimate home for prospective web developers.</p>
@@ -175,9 +175,9 @@
 	</div>
 </footer>
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/app.min.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="{{ url ('admin/js/admin-jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ url ('admin/js/admin-bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ url ('admin/js/admin-app.min.js') }}"></script>
+<script type="text/javascript" src="{{ url ('admin/js/admin-script.js') }}"></script>
 </body>
 </html>
