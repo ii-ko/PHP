@@ -16,3 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('templates.index');
 });
+
+
+Route::get('article', function () {
+    return view('templates.article');
+});
+
+
+Route::get('category', function () {
+    return view('templates.category');
+});
+
+Route::get('admin', function () {
+    return view('templates.admin');
+});
